@@ -33,7 +33,11 @@ export class Modal extends Component {
     return (
       <div className={css.Overlay} onClick={toggleModal}>
         <div className={css.Modal}>
-          <img src={largeImageURL} alt={largeImageURL} />
+          <img
+            src={largeImageURL}
+            alt={largeImageURL}
+            className={css.ImgModal}
+          />
         </div>
       </div>
     );
