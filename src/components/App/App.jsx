@@ -6,6 +6,8 @@ import { Modal } from '../Modal/Modal';
 import { Loader } from '../Loader/Loader';
 import { fetchImages } from '../API/ApiFetch'; // Імпорт функції з api.js
 
+const ITEMS_PER_PAGE = 12;
+
 export class App extends Component {
   // state = {
   //   query: '',
@@ -29,7 +31,7 @@ export class App extends Component {
     this.setState({ query, images: [], page: 1 }, this.fetchImages);
   };
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(_, prevState) {
     if (
       this.state.page !== prevState.page ||
       this.state.searchQuery !== prevState.searchQuery
@@ -73,9 +75,15 @@ export class App extends Component {
   //     });
   // };
 
+  updateImages = (hits, totalHits) => {
+    this.setState(prev => ({
+      images: [...prev.images, ...hits],
+      quantityPage: Math.ceil(totalHits / ITEMS_PER_PAGE),
+    }));
+  };
+
   handleLoadMoreClick = () => {
-    let newPage = this.state.page + 1;
-    this.setState({ page: newPage });
+    this.setState(prev => ({ page: prev.page + 1 }));
   };
 
   handleSearchQuery = value => {

@@ -77,9 +77,9 @@ export class Searchbar extends Component {
               placeholder="Search images..."
             />
 
-            <button type="submit" className={css.SearchFormButton}>
+            {/* <button type="submit" className={css.SearchFormButton}>
               <span className={css.SearchFormButtonLabel}></span>
-            </button>
+            </button> */}
           </div>
         </form>
       </div>
