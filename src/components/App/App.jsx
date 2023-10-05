@@ -5,6 +5,7 @@ import { LoadMoreButton } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
 import { Loader } from '../Loader/Loader';
 import { fetchImages } from '../API/ApiFetch'; // Імпорт функції з api.js
+import css from './App.module.css';
 
 const ITEMS_PER_PAGE = 12;
 
@@ -132,7 +133,7 @@ export class App extends Component {
     // );
     const { error, isLoading, images, largeImageURL, isModalOpen } = this.state;
     return (
-      <div className="App">
+      <div className={css.App}>
         {error && <h1>{error}</h1>}
 
         <Searchbar submit={this.handleSearchQuery} />

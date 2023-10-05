@@ -16,9 +16,9 @@ import css from './Button.module.css';
 
 // export default Button;
 
-export const LoadMoreButton = ({ HandleLoadMoreClick }) => {
+export const LoadMoreButton = ({ handleLoadMoreClick }) => {
   return (
-    <button type="button" onClick={HandleLoadMoreClick} className={css.Button}>
+    <button type="button" onClick={handleLoadMoreClick} className={css.Button}>
       Load more
     </button>
   );
